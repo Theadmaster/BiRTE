@@ -340,7 +340,7 @@ def extract_spoes(args,tokenizer,id2predicate,model,text,entity_start=0.5,entity
     pairs_1=[]
     for s in s1:
         #s:(start,end)
-        s2_mask=np.zeros(len(token_ids)).astype(np.int)
+        s2_mask=np.zeros(len(token_ids)).astype(np.int_)
         s2_mask[s[0]] = 1
         s2_mask[s[1]] = 1
 
