@@ -133,13 +133,13 @@ class data_generator(DataGenerator):
                     batch_s1_labels,batch_o1_labels,\
                     batch_s2_mask,batch_o2_mask,batch_s2_labels,batch_o2_labels,\
                     batch_s3_mask,batch_o3_mask=\
-                        [sequence_padding(i).astype(np.int)
+                        [sequence_padding(i).astype(np.int_)
                          for i in [batch_token_ids,batch_mask,
                                    batch_s1_labels,batch_o1_labels,
                                    batch_s2_mask,batch_o2_mask,batch_s2_labels,batch_o2_labels,
                                    batch_s3_mask,batch_o3_mask]]
 
-                    batch_r = np.array(batch_r).astype(np.int)
+                    batch_r = np.array(batch_r).astype(np.int_)
 
                     yield [
                         batch_token_ids, batch_mask,
@@ -358,7 +358,7 @@ def extract_spoes(args,tokenizer,id2predicate,model,text,entity_start=0.5,entity
     pairs_2=[]
     for o in o1:
         #o:(start,end)
-        o2_mask=np.zeros(len(token_ids)).astype(np.int)
+        o2_mask=np.zeros(len(token_ids)).astype(np.int_)
         o2_mask[o[0]] = 1
         o2_mask[o[1]] = 1
 
@@ -380,8 +380,8 @@ def extract_spoes(args,tokenizer,id2predicate,model,text,entity_start=0.5,entity
 
 
     if pairs: # m * 4
-        s_mask=np.zeros([len(pairs),len(token_ids)]).astype(np.int)
-        o_mask=np.zeros([len(pairs),len(token_ids)]).astype(np.int)
+        s_mask=np.zeros([len(pairs),len(token_ids)]).astype(np.int_)
+        o_mask=np.zeros([len(pairs),len(token_ids)]).astype(np.int_)
 
         for i,pair in enumerate(pairs):
             s1, s2, o1, o2=pair
