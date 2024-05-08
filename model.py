@@ -1,4 +1,4 @@
-from transformers.modeling_bert import BertModel,BertPreTrainedModel
+from transformers.models.bert.modeling_bert import BertPreTrainedModel, BertModel
 import torch.nn as nn
 import torch
 from torch.autograd import Variable
